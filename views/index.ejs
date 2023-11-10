@@ -1,0 +1,115 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+  <div class="col-12 col-lg-6">
+    <img
+      src="/img/HeroImage.jpg"
+      alt="Cocinando"
+      width="607"
+      height="510"
+      class="d-block mx-lg-auto img-fluid"
+      loading="lazy"
+    />
+  </div>
+  <div class="col-12 col-lg-6">
+    <h1 class="display-5 fw-bold mb-3">
+      Selecciona nuestras deliciosas ideas de recetas
+    </h1>
+    <p class="lead">
+      Explora nuestra seleccion de deliciosos platillos incluyendo postres,
+      ideas de cenas vegetarianas y veganas recetas de pastas, pasteles y
+      comidas amigables libre de gluten.
+    </p>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <a
+        href="/explore-latest"
+        class="btn btn-primary btn-dark btn-lg px-4 me-md-2"
+        >Lo último en recetas</a
+      >
+      <a
+        href="/explore-ramdom"
+        class="btn btn-outline-secondary btn-lg px-4 me-md-2"
+        >Aleatorio</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- Categorias -->
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+  <h3>Categorias</h3>
+  <% if(categories != '') { %>
+ <% categories.forEach(function(categoria, index) { %>
+  <a href="/categorias/<%- categoria.name %>" class="col tex-center category_link">
+    <div class="category_img shadow">
+      <img
+        src="img/<%- categoria.image %>"
+        alt="comida"
+        loading="lazy"
+        width="250"
+        height="250"
+      />
+    </div>
+    <div class="pt-1"><%- categoria.name %></div>
+  </a>
+  <% }) %>
+  <% } %>
+  <a href="/categoria" class="col tex-center category_link">
+    <div class="category_img shadow">
+      <img
+        src="img/food2.jpg"
+        alt="Todas las categorias"
+        loading="lazy"
+        width="250"
+        height="250"
+      />
+    </div>
+    <div class="pt-1">Ver Todo</div>
+  </a>
+</div>
+
+<!-- end categorias -->
+<!-- ultima seccion inicio -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Recetas recientes</h2>
+    <a href="/explore-latest" class="ms-auto btn btn-secondary">Ver mas</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(food != '') { %>
+      <% food.recetas.forEach((receta, index) => { %>
+    <a href="/receta/<%=receta._id%>" class="col text-center category_link">
+      <div class="category_img category_img--large shadow">
+        <img
+          src="img/<%= receta.image %>"
+          alt="<%= receta.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="pt-1"><%= receta.name %></div>
+    </a>
+     <% }) %>
+    <% } %>
+
+  </div>
+</section>
+<!-- recetas recientes seccion fin -->
+<!-- seccion de enviar inicio -->
+<section class="px-4 py-5 my-5 text-center">
+  <img
+    src="img/shareFood.jpg"
+    alt=""
+    class="d-block mx-auto mb-4 img-fluid"
+    alt="publica tu receta gratis hoy..."
+    width="566"
+    height="208"
+  />
+  <h1 class="display-5 fw-bold">Publica tu receta gratis hoy...</h1>
+  <p class="lead mb-4">Publica tu receta para que todos puedan conocerla</p>
+  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+    <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg"
+      >Publicar Receta</a
+    >
+  </div>
+</section>
+
+<!-- seccion de enviar fin -->

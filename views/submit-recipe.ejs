@@ -1,0 +1,76 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Envia tu receta</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead">Comparte tu platillo con millones de personas.</p>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    
+    <% if(infoSubmitObject != '') { %>
+      <div class="col-8 alert alert-success" role="alert">
+        <%= infoSubmitObject %>
+      </div>
+    <% } %>
+  
+    <% if(infoErrorObject != '') { %>
+      <div class="col-8 alert alert-danger" role="alert">
+        <%= infoErrorObject[0].message %>
+      </div>
+    <% } %>
+    <div class="col-8">
+  
+      <form action="/postearReceta" enctype="multipart/form-data" method="POST">
+      
+        <div class="row g-3">
+  
+          <div class="col-12">
+            <label for="name" class="form-label">Nombre Platillo</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+          </div>
+          
+          <div class="col-12">
+            <label for="description" class="form-label">Descripcion</label>
+            <textarea name="description" id="description" class="form-control" cols="30" rows="4" required></textarea>
+          </div>
+  
+          <div class="col-12">
+            <label for="name" class="form-label">Ingredientes</label><br>
+            <small>Ejemplo: 2 tazas de arroz</small>
+            <div class="ingredientList">
+              <div class="ingredientDiv mb-1">
+                <input type="text" name="ingredients" class="form-control" required>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingrediente</button>
+          </div>
+  
+          <div class="col-12">
+            <label for="category">Selecciona una categoria</label>
+            <select class="form-select form-control" name="category" aria-label="Category" required>
+              <option selected>Selecciona una categoria</option>
+              <option value="Americana">Americana</option>
+              <option value="China">China</option>
+              <option value="Mexicana">Mexicana</option>
+              <option value="Hindú">Hindú</option>
+            </select>
+          </div>
+  
+          <div class="col-12">
+            <label for="image">Imagen descriptiva del platillo</label>
+            <input type="file" class="form-control" name="image" accept="image/*" required>
+          </div>
+  
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Compartir</button>
+          </div>
+  
+        </div>
+      
+      </form>
+  
+    </div>
+  </div>

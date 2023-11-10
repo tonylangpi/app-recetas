@@ -1,0 +1,24 @@
+<h2>Receta Aleatoria</h2>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    
+    <% if(recetaRamdom != '') { %>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><%- recetaRamdom.name%></li>
+            </ol>
+          </nav>
+    <a href="/receta/<%=recetaRamdom._id%>" class="col text-center category_link">
+      <div class="category_img category_img--large shadow">
+        <img
+          src="/img/<%= recetaRamdom.image %>"
+          alt="<%= recetaRamdom.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="pt-1"><%= recetaRamdom.name %></div>
+    </a>
+    <% } %>
+
+  </div>
